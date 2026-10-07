@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+class Employee
+{
+    float basic;
+
+public:
+    Employee(float b)
+    {
+        basic = b;
+    }
+
+    float salary()
+    {
+        return basic;
+    }
+
+    float salary(float bonus)
+    {
+        return basic + bonus;
+    }
+};
+
+int main()
+{
+    float basic, bonus;
+
+    cout << "Enter basic salary: ";
+    cin >> basic;
+
+    cout << "Enter bonus: ";
+    cin >> bonus;
+
+    Employee e(basic);
+
+    cout << "Salary without bonus = " << e.salary() << endl;
+    cout << "Salary with bonus = " << e.salary(bonus) << endl;
+
+    return 0;
+}
