@@ -1,0 +1,91 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Base class 1: Stores employee basic information
+class Employee
+{
+protected:
+    int emp_id;
+    string name;
+    float salary;
+
+public:
+    // Function to input employee details
+    void getEmployee()
+    {
+        cout << "Enter Employee ID: ";
+        cin >> emp_id;
+
+        cout << "Enter Employee Name: ";
+        cin.ignore();
+        getline(cin, name);
+
+        cout << "Enter Basic Salary: ";
+        cin >> salary;
+    }
+
+    // Function to display employee details
+    void putEmployee()
+    {
+        cout << "\nEmployee ID: " << emp_id;
+        cout << "\nEmployee Name: " << name;
+        cout << "\nBasic Salary: " << salary;
+    }
+};
+
+// Base class 2: Stores bonus information
+class Bonus
+{
+protected:
+    float annual_bonus;
+
+public:
+    // Function to input bonus
+    void getBonus()
+    {
+        cout << "Enter Annual Bonus: ";
+        cin >> annual_bonus;
+    }
+
+    // Function to display bonus
+    void putBonus()
+    {
+        cout << "\nAnnual Bonus: " << annual_bonus;
+    }
+};
+
+// Derived class: Multiple inheritance
+class FinalSalary : public Employee, public Bonus
+{
+public:
+    // Function to calculate and display final salary
+    void calculateSalary()
+    {
+        float final_salary = salary + annual_bonus;
+
+        cout << "\n----- Employee Salary Details -----";
+
+        putEmployee();
+        putBonus();
+
+        cout << "\nFinal Salary: " << final_salary << endl;
+    }
+};
+
+// Main function
+int main()
+{
+    FinalSalary emp;
+
+    // Input employee information
+    emp.getEmployee();
+
+    // Input bonus information
+    emp.getBonus();
+
+    // Calculate and display final salary
+    emp.calculateSalary();
+
+    return 0;
+}
