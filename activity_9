@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+
+// Base class
+class Ticket
+{
+public:
+    // Virtual function to calculate fare
+    virtual void calculateFare()
+    {
+        cout << "Ticket fare" << endl;
+    }
+};
+
+// Derived class for bus ticket
+class BusTicket : public Ticket
+{
+public:
+    // Overriding the base class function
+    void calculateFare()
+    {
+        cout << "Bus Ticket Fare = Rs. 500" << endl;
+    }
+};
+
+// Derived class for flight ticket
+class FlightTicket : public Ticket
+{
+public:
+    // Overriding the base class function
+    void calculateFare()
+    {
+        cout << "Flight Ticket Fare = Rs. 5000" << endl;
+    }
+};
+
+int main()
+{
+    // Create objects of derived classes
+    BusTicket b;
+    FlightTicket f;
+
+    // Create a base class pointer
+    Ticket *t;
+
+    // Call the BusTicket function
+    t = &b;
+    t->calculateFare();
+
+    // Call the FlightTicket function
+    t = &f;
+    t->calculateFare();
+
+    return 0;
+}
