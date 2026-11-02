@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int rollNo;
+
+    // Accept the student's roll number
+    cout << "Enter student roll number: ";
+    cin >> rollNo;
+
+    try
+    {
+        // Check whether the roll number is valid
+        if (rollNo <= 0)
+        {
+            throw rollNo;  // Throw an exception if invalid
+        }
+
+        // Display the valid roll number
+        cout << "Valid Roll Number: " << rollNo << endl;
+    }
+    catch (int r)
+    {
+        // Handle the invalid roll number exception
+        cout << "Exception: Invalid Roll Number!" << endl;
+    }
+
+    return 0;
+}
