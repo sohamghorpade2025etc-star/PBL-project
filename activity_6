@@ -1,11 +1,15 @@
+```cpp
 #include <iostream>
 using namespace std;
 
+// Class to represent a complex number
 class Complex
 {
+    // Data members to store real and imaginary parts
     float real, imag;
 
 public:
+    // Function to accept a complex number from the user
     void accept()
     {
         cout << "Enter real part: ";
@@ -15,32 +19,40 @@ public:
         cin >> imag;
     }
 
+    // Function to display the complex number
     void display()
     {
         cout << real << " + " << imag << "i";
     }
 
+    // Overloading the -= operator to subtract two complex numbers
     void operator-=(Complex c)
     {
-        real = real - c.real;
-        imag = imag - c.imag;
+        real = real - c.real;  // Subtract real parts
+        imag = imag - c.imag;  // Subtract imaginary parts
     }
 };
 
 int main()
 {
+    // Create two objects of the Complex class
     Complex c1, c2;
 
+    // Accept the first complex number
     cout << "Enter first complex number:" << endl;
     c1.accept();
 
+    // Accept the second complex number
     cout << "Enter second complex number:" << endl;
     c2.accept();
 
+    // Subtract the second complex number from the first
     c1 -= c2;
 
+    // Display the result of subtraction
     cout << "Subtraction = ";
     c1.display();
 
-    return 0;
+    return 0;  // End the program
 }
+```
