@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+// First namespace
+namespace Arithmetic
+{
+    void show()
+    {
+        cout << "Arithmetic namespace: 10 + 20 = " << 10 + 20 << endl;
+    }
+}
+
+// Second namespace
+namespace Geometry
+{
+    void show()
+    {
+        cout << "Geometry namespace: rectangle area = " << 6 * 4 << endl;
+    }
+}
+
+int main()
+{
+    // Calling functions using scope resolution operator
+    Arithmetic::show();
+
+    Geometry::show();
+
+    return 0;
+}
