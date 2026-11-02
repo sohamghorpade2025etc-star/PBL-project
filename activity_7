@@ -1,37 +1,41 @@
+```cpp
 #include <iostream>
 #include <cstring>
 using namespace std;
 
+// Class to handle strings
 class String
 {
-    char str[100];
+    char str[100];  // Character array to store the string
 
 public:
 
-    // Default constructor
+    // Default constructor: Initializes an empty string
     String()
     {
         strcpy(str, "");
     }
 
-    // Parameterized constructor
+    // Parameterized constructor: Initializes the string with a given value
     String(const char s[])
     {
         strcpy(str, s);
     }
 
-    // Copy constructor
+    // Copy constructor: Copies the string from another object
     String(String &s)
     {
         strcpy(str, s.str);
     }
 
+    // Function to accept a string from the user
     void Accept()
     {
         cout << "Enter a string: ";
         cin.getline(str, 100);
     }
 
+    // Function to display the string
     void Display()
     {
         cout << "String = " << str << endl;
@@ -40,16 +44,21 @@ public:
 
 int main()
 {
+    // Create an object using the default constructor
     String s1;
 
+    // Accept and display the string entered by the user
     s1.Accept();
     s1.Display();
 
+    // Create an object using the parameterized constructor
     String s2("Hello World");
     s2.Display();
 
+    // Create an object using the copy constructor
     String s3(s2);
     s3.Display();
 
-    return 0;
+    return 0;  // End the program
 }
+```
