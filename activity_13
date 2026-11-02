@@ -1,0 +1,43 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+    string source, destination;
+
+    cout << "Enter source file name: ";
+    cin >> source;
+
+    cout << "Enter destination file name: ";
+    cin >> destination;
+
+    // Open source file
+    ifstream fin(source);
+
+    if (!fin)
+    {
+        cout << "Source file not found!";
+        return 0;
+    }
+
+    // Open destination file
+    ofstream fout(destination);
+
+    if (!fout)
+    {
+        cout << "Cannot create destination file!";
+        return 0;
+    }
+
+    // Copy contents
+    fout << fin.rdbuf();
+
+    cout << "File copied successfully.";
+
+    // Close files
+    fin.close();
+    fout.close();
+
+    return 0;
+}
